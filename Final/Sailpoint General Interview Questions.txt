@@ -226,6 +226,9 @@
 	 Disable - When we need to disable account
 	 Enable - When we need to enable account
 	 Delete - When we need to delete account
+
+	 Requestee - Person to whom we place the request.
+	 Requestor - Person who places the request.
 	 
 34) What is provisioning Plan?
 	Object representation of the request is called provisioning plan.
@@ -283,70 +286,79 @@
 44) what is the difference between Preview and Preview at IIQ Console?
 	In the Preview at application definition can able to see only 10 accounts.
 	In the Preview at IIQConsole we can see all the accounts from the application.
+
+45) How to run Refresh task on single Identity Cube?
+	We can setup the filter in the refresh task like name == "nameOfTheIdentity"
+46) How to run Refresh task on for all the users in a specfice application?
+	We can setup the filter in the refresh task like links.application.name == "nameOfTheSpecificApplication"
+
+47) I wanted to create a cerification not based on manager or anything based but based on attribute i have to create certification. How will u create it?
+	I think i didn't get it exactly, Can you plese rephrase it?
+	We have two ways to do this. 
+	First Option is, using the Targated Certification we can define the filter with required attribute and setup the campaign.
+	Another Option is, using the Advanced Certification we can choose populations or groups and setup the campaign.
+
+48) I wanted create certifications for some groups in that i wanted exclude some identities or groups  then how will do it?
+	Yeah we can exclude identities or groups by writing exlcusion rule. we have to check the certificationItesm from the certificationEntity wheather that needs to be exculded or not. If it needs to be excluded we have to added that certificationItem to the list itemsToExclude.
+
+	48.1 what is the return type of Exclusion Rule?
+	Return type is explanation which is nothing but String Object.
+
+49) When we will go for advanced certifications?
+	using the Advanced Certification we can setup campaigns for the populations or groups.
+
+50) If employee is being in any department that time he should not get any emails or notifications. How will you fix it?
+	I didn't get chance to work on this type of requirement. 
+
+51) What is the User of IIQProperties File?
+	One of the most importatnt files to work Sailpoint is IIQProperties file.
+	IIQProperties files has information about what type of database being used by SailPoint and authentication information to connect to this Database. It has autentication information for identityIq Database and identityIqPlugin database.
+
+
+52) waht is sAMAccountName In AD?
+	One of the unique attribute in the Active directory System. this also works as login name to login to the account.
+
+53) Tell me about sailpoint architecture?
+	We have total four environments available these are sbx, dev, preprod and prod.
+
+	No of batch and ui servers are same in the preprod and prod.
+	SBX - 1 server, 1 IQ Server and DB server
+	DEV - 1 Batch,  1 UI , 1 IQ Server and DB server
+	Pre - 2 Batch, 2 UI server, 2 IQ Servers and DB server
+	Prod - 2 Batch 2 UI Server, 2 IQ Servers and DB server
+
+	we have two IQ Servers in Prod and Preprod.
+	for dev and sbx we have dedicated IQServers.
+54) What is IQ Server?
+
+	IQ Server is a intermedidate component to full fill the provisioning Request in the ACtive Directory Domain. 
+	SailPoint doesn't have capability to provision into the Active Directory so SailPoint depends on IQServer to proces the provisioning request.
+
+	54.1 Without IQ Server can we do test connection ?
+	Yes without IQServer as well we can do test connection, IQServer is not mandatory but we can't provision.
+	54.2 Without IQServer can we aggregate Accounts and Groups from Active directory into SailPoint?
+	Yes, without IQServer as well we can aggregate accounts and groups in to SailPoint but we can't provision.
+
+
+55) What is rouge account? What is the use of it?
+	Active Accounts which are on the Target system without having associated Active User.
+
+
+56) Difference between LDAP server and JDBC?
+	LDAP is Light Weigh Directory Access Protocal. simply it a directory service. Examples are Active Directory, Open LDAP
+	JDBC is Java Database Connectivity to connect to the different databases like MSSQL, mySQL, Oracle, etc.
+57) What is a link? HOw can we implement a link?
 	
-->I wanted to create a cerification not based on manager or anything based but based on attribute i have to create certification. How will u create it?
-
-By populations or  by groups we will create and we will apply certifications.
-
-->I wanted create certifications for some groups in that i wanted exclude some identities or groups  then how will do it?
-
--> When we will go for advanced certifications?
-
-->In Email triggering , I need send email particular person not for superiors or for others except the particular person. How will u do it?
-
-->If employee is being in any department that time he should not get any emails or notifications. How will you fix it?
-
--> How to refresh a particular Application?
-
--> In AD what is SAMAccount?
-
--> What is rouge account? What is the use of it?
-
-->What is the use of IIQ properties file?
-
-->Difference between LDAP server and JDBC?
-
-->Tell me about sailpoint architecture?
-
-->What is a role based access control?
-
-->Difference between hash map and hash table?
-
-->What is synchronizede?
+58) If u have troubleshoot how will u find a error?
+59) How do u execute rules?
+   	Using loggers.. What  kind of logger u have used?
+60) Write any rule in sailpoint.
+61) IIQ installation process.
 
 
 
--> HOw to configure a workflow?
 
-->Difference between applicaion server and web server?
 
--> what is identity correlation?
-
--> What is a link? HOw can we implement a link?
-
--> What is the use of IQ service?
-
-->hOW DO YOU EXECUTE RULES?
-
--> Birth right provisioning?
-
-->Encapsulation in oops with real time example.
-
--> Questions on String handling
-
--> Write any rule in sailpoint.
-
--> IIQ installation process.
-
--> If u have troubleshoot how will u find a error?
-   Using loggers.. What  kind of logger u have used?
-
--> How do u execute rules?
-
-->Explain about LCM events
-
--> Why do we use IIQ service?
-  To access AD.
 
 
 Q) what is SPRight, Capability and Workgroup
@@ -381,3 +393,9 @@ Java Questions
 21) What is the Deligation?
 12) what is DriverManager
 13) What is Connection 
+->Difference between hash map and hash table?
+->What is synchronizede?
+->How to configure a workflow?
+->Difference between applicaion server and web server?
+->Encapsulation in oops with real time example.
+->Questions on String handling
