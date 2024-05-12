@@ -6,5 +6,7 @@ git version -> To Check version
 git add file1  
 git add .
 
-git commit file1 -m
+git commit file1 -m 
+
+git Adding seconed Line
 
