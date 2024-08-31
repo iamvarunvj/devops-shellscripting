@@ -2,10 +2,18 @@
 
 USERID=$(id -u)
 
-if[ $USERID -ne 0 ]
+if [ $USERID -ne 0 ]
 then
     echo "Please run this script with root privelages"
     exit 1
 fi
 
-dnf install git -y
+dnf list installed git
+
+if [ $? -ne 0 ]
+then
+    echo "Git is not installed, going to install Git"
+    dnf install git -y
+else
+    echo "Git is already installed nothing to do"
+fi
