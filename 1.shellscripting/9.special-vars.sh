@@ -15,3 +15,7 @@ echo "Script Name is :$0"
 echo "Present working directory is :$PWD"
 
 echo "Home Directory is :$HOME"
+
+echo "PID of the script executing now:$$"
+sleep 100 &
+echo "PID of last background command: $!"
