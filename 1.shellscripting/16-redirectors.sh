@@ -48,7 +48,7 @@ do
     if [ $? -ne 0 ]
     then
         echo "$package is not installed, going to install it..." | tee -a &>>$LOG_FILE
-        dnf install $package -y
+        dnf install $package -y &>>$LOG_FILE
         VALIDATE $? "Installing $package"
     else
         echo "$package is installed already..nothing to do" | tee -a  &>>$LOG_FILE
