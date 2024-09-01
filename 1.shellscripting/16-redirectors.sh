@@ -28,7 +28,16 @@ VALIDATE(){
     fi
 }
 
+USAGE(){
+    echo -e "$R USAGE:: $N sudo sh 16-redirectorsh.sh package1 package2 ..."
+}
+
 CHECK_ROOT
+
+if [ $# -eq 0 ]
+then
+    USAGE
+fi
 
 for package in $@  # $@ refers to all the arguments passed to it while running this script
 do
