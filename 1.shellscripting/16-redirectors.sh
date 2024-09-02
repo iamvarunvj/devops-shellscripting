@@ -10,6 +10,7 @@ USERID=$(id -u)
 R="\e[31m"
 G="\e[32m"
 N="\e[0m"
+Y="\e[33m"
 
 CHECK_ROOT(){
     if [ $USERID -ne 0 ]
@@ -52,6 +53,6 @@ do
         dnf install $package -y &>>$LOG_FILE
         VALIDATE $? "Installing $package"
     else
-        echo "$package is installed already..nothing to do" | tee -a $LOG_FILE
+        echo "$package is installed $Y already..nothing to do $N" | tee -a $LOG_FILE
     fi
 done
