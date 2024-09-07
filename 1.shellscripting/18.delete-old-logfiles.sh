@@ -18,6 +18,6 @@ else
     exit 1
 fi
 
-FILES=$(find /home/ec2-user/logs -name "*.log")
+FILES=$(find /home/ec2-user/logs -name "*.log" -mtime 14)
 
 echo "Files $FILES"
