@@ -44,6 +44,15 @@ then
     if [ -f $ZIP_FILE ]
     then
         echo "Successfully ziped files older than $DAYS"
+        #Delete the Files from the Source
+        while IFS= read -r file #
+        do
+            echo "Deleting line : $file"
+            rm -rf $file
+        done <<< $FILES
+    else
+        echo "Zipping of files failed"
+        exit 1
     fi
 else
     echo "No files older than $DAYS"
