@@ -11,7 +11,7 @@ USAGE() {
     echo -e "$R Error $N:: 19.backup.sh <SOURCE> <DESTINATION> <DAYS(Optional)>"
 }
 
-if [ $# lt 2 ]
+if [ $# -lt 2 ]
 then
     USAGE
 fi
