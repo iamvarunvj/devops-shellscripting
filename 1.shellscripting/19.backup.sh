@@ -11,6 +11,7 @@ Y="\2[33m"
 
 USAGE() {
     echo -e "$R Error $N:: 19.backup.sh <SOURCE> <DESTINATION> <DAYS(Optional)>"
+    exit 1
 }
 
 if [ $# -lt 2 ]
