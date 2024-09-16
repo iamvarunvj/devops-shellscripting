@@ -38,7 +38,7 @@ if [ ! -z $FILES ] #-z $FILES returns true if files are empty, ! makes expressio
 then
     echo "Files are found"
     $ZIP_FILE="$DEST_FIR/app-logs-$TIMESTAMP.zip"
-    $FILES | zip $ZIP_FILE -@
+    (find $SOURCE_DIR -name "*.log" -mtime +14 | zip $ZIP_FILE -@)
 
     #check if zip file is successfully created or not
     if [ -f $ZIP_FILE ]
