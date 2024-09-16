@@ -1,11 +1,13 @@
 #!/bin/bash
+
 SOURCE_DIR=$1
 DEST_FIR=$2
-DAYS={$3:-14}  #if days are empty it will be 14 days
-
+DAYS=${3:-14}  #if $3 is empty, default is 14 days
+TIMESTAMP=$(date +%Y-%m-%d-%H-%M-%S)
 R="\e[31m"
 G="\e[32m"
 N="\e[0m"
+Y="\2[33m"
 
 USAGE() {
     echo -e "$R Error $N:: 19.backup.sh <SOURCE> <DESTINATION> <DAYS(Optional)>"
@@ -35,6 +37,14 @@ echo "Files :$FILES"
 if [ ! -z $FILES ] #-z $FILES returns true if files are empty, ! makes expression false
 then
     echo "Files are found"
+    $ZIP_FILE="$DEST_FIR/app-logs-$TIMESTAMP.zip"
+    $FILES | zip $ZIP_FILE -@
+
+    #check if zip file is successfully created or not
+    if [ -f $ZIP_FILE ]
+    then
+        echo "Successfully ziped files older than $DAYS"
+    fi
 else
     echo "No files older than $DAYS"
     exit 1
